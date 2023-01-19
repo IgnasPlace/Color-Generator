@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap");
+
+.copy {
+  display: flex;
+  height: 3rem;
+  box-shadow: 3px 4px 13px 0 rgba(45, 45, 45, 0.35);
+  position: relative;
+  border-radius: 0.3rem;
+}
+
+.copy h1,
+.copy-btn {
+  letter-spacing: 6px;
+  
+  border: none;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2rem;
+  color: #333;
+  z-index: 10;
+}
+.copy h1 {
+  padding: 0rem 1rem 0rem calc(1rem + 6px);
+  background-color: #eee;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.copy-btn {
+  padding: 0rem 1rem;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: all 0.15s;
+  border-bottom-right-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+.copy-btn:hover {
+  background-color: #333;
+  color: #ddd;
+}
+.copied-info-message {
+  position: absolute;
+  background-color: rgb(190, 252, 183);
+  color: #111;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  top: 0;
+  transition: top 0.3s;
+}
+.visible {
+  top: 120%;
+}
+
+@media (max-width: 600px) {
+  .copy {
+    height: 2rem;
+  }
+  .copied-info-message {
+    font-size: .8rem;
+  }
+
+  .copy h1,
+  .copy-btn {
+    font-size: 1rem;
+  }
+  .copy h1 {
+    line-height: 1rem;
+    padding: .5rem 1rem .5rem calc(1rem + 6px);
+  }
+}

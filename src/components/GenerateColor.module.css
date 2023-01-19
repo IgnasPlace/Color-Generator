@@ -1,0 +1,29 @@
+.btn {
+  height: 3rem;
+  font-size: 1.4rem;
+  background-color: rgba(56, 56, 56);
+  color: #eee;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  border-radius: .3rem;
+  padding: 0 1rem;
+  box-shadow: 3px 4px 13px 0 rgba(45, 45, 45, 0.35);
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.15s;
+}
+.btn:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 13px 0 rgba(45, 45, 45, 0.35);
+  background-color: #eee;
+  color: rgba(56, 56, 56);
+}
+.btn:active {
+  transform: scale(1.01);
+}
+
+@media (max-width: 600px) {
+  .btn {
+    height: 2rem;
+  }
+}

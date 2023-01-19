@@ -1,0 +1,13 @@
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  
+}
+
+@media (min-width: 1400px) {
+  .App {
+    flex-direction: row;
+  }
+}
