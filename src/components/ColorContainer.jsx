@@ -1,16 +1,18 @@
 import ColorCodeCopy from "./ColorCodeCopy";
 import GenerateColor from "./GenerateColor";
+import RemoveButton from "./RemoveButton";
+import AddButton from "./AddButton";
+import LikeButton from "./LikeButton";
 import classes from "./ColorContainer.module.css";
-import {MdOutlineAdd} from 'react-icons/md'
 import { useColors } from "../store/color-context";
+import AddColor from "./AddColor";
 
 const ColorContainer = ({ color }) => {
   const [store, dispatch] = useColors();
-  
-  const insertColorHandler = (e) => {
-    e.preventDefault()
-    dispatch({type: 'add-color', payload: color})
-  }
+
+  const removeColor = () => {
+    dispatch({ type: "remove-color", payload: color });
+  };
 
   return (
     <div
@@ -18,13 +20,18 @@ const ColorContainer = ({ color }) => {
       className={classes.actions}
       style={{ backgroundColor: color }}
     >
-      <GenerateColor color={color} />
-      <ColorCodeCopy color={color} />
-      <div className={classes['add-color']}>
-        <div className={classes['add-color__icon']} onClick={(e) => insertColorHandler(e)}>
-          <MdOutlineAdd />
+      <div className={classes.controls}>
+        <GenerateColor color={color} />
+        <div className={classes.controlsButtons}>
+          <AddButton color={color} />
+          <LikeButton />
+          <RemoveButton onClick={removeColor} />
         </div>
       </div>
+
+      <div className={classes["invisible-middle-element"]}></div>
+      <ColorCodeCopy color={color} />
+      <AddColor color={color} />
     </div>
   );
 };
