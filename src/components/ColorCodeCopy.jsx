@@ -12,15 +12,15 @@ async function copyTextToClipboard(text) {
 
 const ColorCodeCopy = ({ color }) => {
   const [copiedVerify, setCopyVerifiy] = useState(false)
-  
+
   const handleCopy = async () => {
     copyTextToClipboard(color);
     showCopiedMessage();
   };
 
-  const showCopiedMessage = async () => {
+  const showCopiedMessage = () => {
     setCopyVerifiy(true);
-    await setTimeout(() => {
+    setTimeout(() => {
       setCopyVerifiy(false)
     }, 2000)
   }

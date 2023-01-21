@@ -16,12 +16,15 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* overflow-x: hidden; */
 }
 
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
+
+
 
 input, button, textarea, select {
   font: inherit;
@@ -33,4 +36,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #root, #__next {
   isolation: isolate;
+}
+
+.control-button {
+  cursor: pointer;
 }

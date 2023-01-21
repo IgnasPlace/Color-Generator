@@ -1,7 +1,7 @@
 import { useReducer, createContext, useContext } from "react";
 import { GenerateColor } from "../utilities/generate-color";
 
-const defaultColors = {colors: ["#34efa1", "#bd5997", "#fafab4", "#ea5963"]};
+const defaultColors = { colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"] };
 // const defaultColors = {
 //   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()],
 // };
@@ -21,9 +21,17 @@ const colorReducer = (state, action) => {
     case "add-color":
       const newColorArray = [...state.colors];
       const targetIndex =
-        newColorArray.findIndex((color) => color === action.payload) + 1;
+        newColorArray.findIndex((color) => color === action.payload.color) + 1;
       const newColor = GenerateColor();
       newColorArray.splice(targetIndex, 0, newColor);
+      if (
+        action.payload.screenWidth < 1600 &&
+        state.colors.length > 5
+      ) {
+        return {
+          ...state,
+        };
+      }
       if (state.colors.length > 7) {
         return {
           ...state,
@@ -32,6 +40,19 @@ const colorReducer = (state, action) => {
       return {
         ...state,
         colors: newColorArray,
+      };
+    case "remove-color":
+      const revemedColorsArray = state.colors.filter(
+        (color) => color !== action.payload
+      );
+      if (state.colors.length < 3) {
+        return {
+          ...state,
+        };
+      }
+      return {
+        ...state,
+        colors: revemedColorsArray,
       };
     default:
       return {
