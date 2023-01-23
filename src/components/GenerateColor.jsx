@@ -37,7 +37,8 @@ const GenerateColor = (props) => {
   };
 
   return (
-    <button className={classes.btn} onClick={handleGenerateColor}>
+    <button draggable="true" onDragStart={
+      (e) => e.preventDefault()} className={classes.btn} onClick={handleGenerateColor}>
       <SlRefresh />
     </button>
   );

@@ -6,6 +6,8 @@
   padding: 1.7rem;
   flex: 1;
   position: relative;
+  cursor: move;
+  cursor: grab;
 }
 
 .actions:last-child aside {

@@ -28,7 +28,8 @@ const ColorCodeCopy = ({ color }) => {
   const copiedClasses = copiedVerify ? `${classes['copied-info-message']} ${classes.visible}` : `${classes['copied-info-message']}`
 
   return (
-    <div className={classes.copy}>
+    <div className={classes.copy} draggable="true" onDragStart={
+      (e) => e.preventDefault()}>
       <h1>{color}</h1>
       <button className={classes['copy-btn']} onClick={handleCopy}>
         <MdOutlineContentCopy />
