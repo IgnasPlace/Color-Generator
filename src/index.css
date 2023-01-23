@@ -41,7 +41,9 @@ p, h1, h2, h3, h4, h5, h6 {
 .control-button {
   cursor: pointer;
   transition: all .2s;
+  transform: scale(0.99) translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 .control-button:hover {
-    transform: scale(1.1) translateY(-2px);
+    transform: scale(1) translateY(-2px);
 }

@@ -1,7 +1,11 @@
 import { useReducer, createContext, useContext } from "react";
 import { GenerateColor } from "../utilities/generate-color";
 
-const defaultColors = { colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"], firstSwapColor: null, secondSwapColor: null };
+const defaultColors = {
+  colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"],
+  firstSwapColor: null,
+  secondSwapColor: null,
+};
 // const defaultColors = {
 //   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()], firstSwapColor: null, secondSwapColor: null
 // };
@@ -24,10 +28,7 @@ const colorReducer = (state, action) => {
         newColorArray.findIndex((color) => color === action.payload.color) + 1;
       const newColor = GenerateColor();
       newColorArray.splice(targetIndex, 0, newColor);
-      if (
-        action.payload.screenWidth < 1600 &&
-        state.colors.length > 5
-      ) {
+      if (action.payload.screenWidth < 1600 && state.colors.length > 5) {
         return {
           ...state,
         };
@@ -54,20 +55,20 @@ const colorReducer = (state, action) => {
         ...state,
         colors: revemedColorsArray,
       };
-    case 'swapColors':
+    case "swapColors":
       return {
         ...state,
-        colors: action.payload
-      }
-    case 'setFirstSwapColor':
-      return {
-        ...state,
-        firstSwapColor: action.payload
+        colors: action.payload,
       };
-    case 'setSecondSwapColor':
+    case "setFirstSwapColor":
       return {
         ...state,
-        secondSwapColor: action.payload
+        firstSwapColor: action.payload,
+      };
+    case "setSecondSwapColor":
+      return {
+        ...state,
+        secondSwapColor: action.payload,
       };
     default:
       return {
