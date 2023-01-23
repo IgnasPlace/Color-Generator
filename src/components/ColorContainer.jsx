@@ -11,6 +11,7 @@ import AddColor from "./AddColor";
 const ColorContainer = ({ color }) => {
   const [store, dispatch] = useColors();
   const [btnColor, setBtnColor] = useState('');
+  const [addColorVisible, setAddColorVisible] = useState(true)
   const newColorArr = [...store.colors];
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const ColorContainer = ({ color }) => {
   };
 
   const handleDragStart = (e) => {
+    setAddColorVisible(false);
     if(e.target.textContent.length > 0) {
       dispatch({type: 'setFirstSwapColor', payload: e.target.textContent.slice(0, 7)})
     }
@@ -53,6 +55,7 @@ const ColorContainer = ({ color }) => {
           dispatch({type: 'swapColors', payload: newColorArr})
         }
       }
+      setAddColorVisible(true);
   }
 
   return (
@@ -67,7 +70,7 @@ const ColorContainer = ({ color }) => {
       <div className={classes.controls}>
         <GenerateColor color={color} />
         <div className={classes.controlsButtons}>
-          <AddButton color={btnColor} />
+          <AddButton color={color} btnColor={btnColor} />
           <LikeButton color={btnColor}/>
           <RemoveButton color={btnColor} onClick={removeColor} />
         </div>
@@ -75,7 +78,7 @@ const ColorContainer = ({ color }) => {
 
       <div className={classes["invisible-middle-element"]}></div>
       <ColorCodeCopy color={color} />
-      <AddColor color={color} />
+      {addColorVisible && <AddColor color={color} />}
     </div>
   );
 };
@@ -105,3 +108,5 @@ function hexToRGB(h) {
   }
   return [+r, +g, +b];
 }
+
+
