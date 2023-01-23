@@ -1,7 +1,7 @@
 import { VscAdd } from "react-icons/vsc";
 import { useColors } from "../store/color-context";
 
-const AddButton = ({ color }) => {
+const AddButton = ({ color, btnColor }) => {
   const [store, dispatch] = useColors();
   const insertColorHandler = (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ const AddButton = ({ color }) => {
     });
   };
   return (
-    <div className="control-button" style={{ color: color }} onClick={(e) => insertColorHandler(e)}>
+    <div className="control-button" style={{ color: btnColor }} onClick={(e) => insertColorHandler(e)}>
       <VscAdd />
     </div>
   );
