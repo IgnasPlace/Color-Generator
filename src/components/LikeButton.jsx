@@ -1,9 +1,15 @@
-import {VscHeart} from 'react-icons/vsc';
+import { VscHeart } from "react-icons/vsc";
 
-const LikeButton = () => {
+const LikeButton = ({ color }) => {
+  const colorStyles = {
+    color: color,
+  }
+
   return (
-    <div className='control-button'><VscHeart /></div>
-  )
-}
+    <div className="control-button" style={colorStyles}>
+      <VscHeart />
+    </div>
+  );
+};
 
-export default LikeButton
+export default LikeButton;

@@ -41,7 +41,7 @@
 }
 .copied-info-message {
   position: absolute;
-  background-color: rgb(190, 252, 183);
+  background-color: #eee;
   color: #111;
   border-radius: 0.2rem;
   padding: 0.3rem 0.5rem;
