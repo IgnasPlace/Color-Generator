@@ -1,9 +1,9 @@
 import { useReducer, createContext, useContext } from "react";
 import { GenerateColor } from "../utilities/generate-color";
 
-const defaultColors = { colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"] };
+const defaultColors = { colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"], firstSwapColor: null, secondSwapColor: null };
 // const defaultColors = {
-//   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()],
+//   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()], firstSwapColor: null, secondSwapColor: null
 // };
 
 const colorReducer = (state, action) => {
@@ -53,6 +53,21 @@ const colorReducer = (state, action) => {
       return {
         ...state,
         colors: revemedColorsArray,
+      };
+    case 'swapColors':
+      return {
+        ...state,
+        colors: action.payload
+      }
+    case 'setFirstSwapColor':
+      return {
+        ...state,
+        firstSwapColor: action.payload
+      };
+    case 'setSecondSwapColor':
+      return {
+        ...state,
+        secondSwapColor: action.payload
       };
     default:
       return {

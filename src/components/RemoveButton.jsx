@@ -1,8 +1,8 @@
 import {RxCross1} from 'react-icons/rx';
 
-const RemoveButton = (props) => {
+const RemoveButton = ({onClick, color}) => {
   return (
-    <div className='control-button' onClick={props.onClick}>
+    <div className='control-button' style={{ color: color }} onClick={onClick}>
         <RxCross1 />
     </div>
   )

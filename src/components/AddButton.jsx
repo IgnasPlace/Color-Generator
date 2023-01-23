@@ -11,7 +11,7 @@ const AddButton = ({ color }) => {
     });
   };
   return (
-    <div className="control-button" onClick={(e) => insertColorHandler(e)}>
+    <div className="control-button" style={{ color: color }} onClick={(e) => insertColorHandler(e)}>
       <VscAdd />
     </div>
   );
