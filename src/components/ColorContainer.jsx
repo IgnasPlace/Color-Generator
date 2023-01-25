@@ -1,30 +1,19 @@
 import ColorCodeCopy from "./ColorCodeCopy";
 import GenerateColor from "./GenerateColor";
-import RemoveButton from "./RemoveButton";
-import AddButton from "./AddButton";
-import LikeButton from "./LikeButton";
+import RemoveButton from "./UI/RemoveButton";
+import AddButton from "./UI/AddButton";
+import LikeButton from "./UI/LikeButton";
 import classes from "./ColorContainer.module.css";
 import { useColors } from "../store/color-context";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AddColor from "./AddColor";
+import {ColorIsDark} from '../utilities/color-is-dark';
 
 const ColorContainer = ({ color }) => {
   const [store, dispatch] = useColors();
-  const [btnColor, setBtnColor] = useState("");
   const [addColorVisible, setAddColorVisible] = useState(true);
   const newColorArr = [...store.colors];
-
-  useEffect(() => {
-    if (ColorIsDark(color)) {
-      setBtnColor("#EEE");
-    } else {
-      setBtnColor("#333");
-    }
-  }, [color]);
-
-  const removeColor = () => {
-    dispatch({ type: "remove-color", payload: color });
-  };
+  const btnColor = ColorIsDark(color) ? "#EEE" : "#333";
 
   const handleDragStart = (e) => {
     setAddColorVisible(false);
@@ -68,7 +57,7 @@ const ColorContainer = ({ color }) => {
 
   return (
     <div
-      draggable="true"
+      draggable={true}
       onDragStart={(e) => handleDragStart(e)}
       onDragOver={(e) => handleDragOver(e)}
       onDrop={(e) => handleDrop(e)}
@@ -82,9 +71,9 @@ const ColorContainer = ({ color }) => {
       >
         <GenerateColor color={color} />
         <div className={classes.controlsButtons}>
+          <LikeButton color={color} btnColor={btnColor} />
           <AddButton color={color} btnColor={btnColor} />
-          <LikeButton color={btnColor} />
-          <RemoveButton color={btnColor} onClick={removeColor} />
+          <RemoveButton color={color} btnColor={btnColor} />
         </div>
       </div>
 
@@ -96,28 +85,3 @@ const ColorContainer = ({ color }) => {
 };
 
 export default ColorContainer;
-
-function ColorIsDark(color) {
-  const [r, g, b] = hexToRGB(color);
-  const min = Math.min(r, g, b);
-  const max = Math.max(r, g, b);
-  return (min + max) / 2 < 128;
-}
-
-function hexToRGB(h) {
-  let r = 0,
-    g = 0,
-    b = 0;
-  // 3 digits
-  if (h.length == 4) {
-    r = "0x" + h[1] + h[1];
-    g = "0x" + h[2] + h[2];
-    b = "0x" + h[3] + h[3];
-    // 6 digits
-  } else if (h.length == 7) {
-    r = "0x" + h[1] + h[2];
-    g = "0x" + h[3] + h[4];
-    b = "0x" + h[5] + h[6];
-  }
-  return [+r, +g, +b];
-}

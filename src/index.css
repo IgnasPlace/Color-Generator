@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
+:root {
+  --header-height: 2rem;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -39,6 +43,8 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .control-button {
+  font-size: 1.5rem;
+  padding: 3px;
   cursor: pointer;
   transition: all .2s;
   transform: scale(0.99) translateZ(0);

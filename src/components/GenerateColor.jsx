@@ -1,5 +1,5 @@
 import classes from "./GenerateColor.module.css";
-import { SlRefresh } from "react-icons/sl";
+import { IoRefresh } from "react-icons/io5";
 import { useColors } from "../store/color-context";
 
 const COLOR_CHARACTERS = [
@@ -21,7 +21,7 @@ const COLOR_CHARACTERS = [
   "F",
 ];
 
-const GenerateColor = (props) => {
+const GenerateColor = ({ color }) => {
   const [store, dispatch] = useColors();
 
   const handleGenerateColor = () => {
@@ -32,14 +32,18 @@ const GenerateColor = (props) => {
     }
     dispatch({
       type: "set-color",
-      payload: { newColor: newColor, oldColor: props.color },
+      payload: { newColor: newColor, oldColor: color },
     });
   };
 
   return (
-    <button draggable="true" onDragStart={
-      (e) => e.preventDefault()} className={classes.btn} onClick={handleGenerateColor}>
-      <SlRefresh />
+    <button
+      draggable="true"
+      onDragStart={(e) => e.preventDefault()}
+      className={classes.btn}
+      onClick={handleGenerateColor}
+    >
+      <IoRefresh />
     </button>
   );
 };
