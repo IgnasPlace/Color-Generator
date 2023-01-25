@@ -1,0 +1,18 @@
+.likeButton {
+    animation: heart 0.5s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes heart {
+    0% {
+        transform: translateX(0px) translateY(0px);
+        opacity: 1;
+    }
+    45% {
+        transform: translateX(-5rem) translateY(0px);
+    }
+    100% {
+        transform: translateX(-5rem) translateY(-100vh);
+        opacity: .5;
+    }
+}
