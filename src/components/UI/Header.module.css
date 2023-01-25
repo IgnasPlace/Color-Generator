@@ -43,8 +43,7 @@
     min-height: calc(100vh - var(--header-height));
     background-color: #313131;
     transition: transform .3s ease-out;
-    transform: rotate(90deg);
-    transform-origin: 0 0;
+    transform: translateX(-150vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,5 +53,5 @@
 }
 
 .visible {
-    transform: rotate(0deg);
+    transform: translateX(0);
 }

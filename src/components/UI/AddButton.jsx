@@ -4,6 +4,7 @@ import classes from './AddButton.module.css';
 
 const AddButton = ({ color, btnColor }) => {
   const [store, dispatch] = useColors();
+
   const insertColorHandler = (e) => {
     e.preventDefault();
     dispatch({
@@ -11,6 +12,12 @@ const AddButton = ({ color, btnColor }) => {
       payload: { color: color, screenWidth: e.view.innerWidth },
     });
   };
+
+
+  if (store.colors.length > 4) {
+    return null
+  }
+
   return (
     <div
       className={`control-button ${classes.addButton}`}

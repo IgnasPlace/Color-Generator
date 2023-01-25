@@ -1,4 +1,4 @@
-.actions {
+.colorContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   cursor: grab;
 }
 
-.actions:last-child aside {
+.colorContainer:last-child aside {
   display: none;
 }
 
@@ -30,7 +30,7 @@
 }
 
 @media (min-width: 1200px) {
-  .actions {
+  .colorContainer {
     flex-direction: column;
     padding: 3rem 0;
     height: 100%;
@@ -52,10 +52,4 @@
     margin-left: 0;
     margin-top: 2rem;
   }
-}
-@media (min-width: 768px) {
-  /* .controls :not(:first-child) {
-    margin-top: 2rem;
-    margin-left: 0;
-  } */
 }
