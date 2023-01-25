@@ -3,14 +3,16 @@ import { GenerateColor } from "../utilities/generate-color";
 
 const localStorageFavColors = JSON.parse(localStorage.getItem('favoriteColors'));
 
+colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()]
+
 const defaultColors = {
-  colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"],
+  colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()],
   firstSwapColor: null,
   secondSwapColor: null,
   favoriteColors: localStorageFavColors || [],
 };
 // const defaultColors = {
-//   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()], firstSwapColor: null, secondSwapColor: null
+//   colors: ["#34EFA1", "#BD5997", "#FAFAB4", "#EA5963"], firstSwapColor: null, secondSwapColor: null, favoriteColors: localStorageFavColors || [],
 // };
 
 const colorReducer = (state, action) => {

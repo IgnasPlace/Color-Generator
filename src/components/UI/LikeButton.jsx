@@ -11,8 +11,8 @@ const LikeButton = ({ color, btnColor }) => {
   };
 
   const handleAddToFavorites = () => {
-    if(store.favoriteColors.length > 3) {
-      alert('Favorite color limit reached. Please remove some favorite colors to add new ones.');
+    if(store.favoriteColors.length > 19) {
+      alert('Favorite color limit reached (20). Please remove some favorite colors to add new ones.');
       return
     }
     dispatch({ type: "addToFavorites", payload: color });
