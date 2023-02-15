@@ -25,7 +25,7 @@ const Header = ({windowHeightMinusHeader}) => {
               {favoritesVisible ? <IoIosArrowBack /> : <IoIosMenu />}
             </div>
           </menu>
-          {favoritesVisible ? <h3 className={classes.favoriteColorsText}>Favorite Colors</h3> : null}
+          {favoritesVisible ? <h3 className={classes.favoriteColorsText}>Favorite Colors</h3> : <h3 className={classes.favoriteColorsText}>Color Generator</h3>}
         </nav>
         <section className={favoritesClasses} style={{minHeight: windowHeightMinusHeader}}>
           {store.favoriteColors.map(favColor => {
