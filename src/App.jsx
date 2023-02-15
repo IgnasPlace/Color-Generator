@@ -18,12 +18,13 @@ function App() {
 
   const handleResize = () => {
     const headerHeight = getComputedStyle(document.querySelector(':root')).getPropertyValue('--header-height');
+
     setWindowHeight(`calc(${window.innerHeight}px - ${headerHeight})`);
   };
 
   return (
     <>
-      <Header />
+      <Header windowHeightMinusHeader={windowHeight} />
       <div className={classes.App} style={{ height: windowHeight }}>
         {store.colors.map((color) => {
           return <ColorContainer key={color} color={color} />;

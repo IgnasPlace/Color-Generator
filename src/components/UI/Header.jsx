@@ -4,16 +4,13 @@ import { useState } from "react";
 import { IoIosMenu, IoIosArrowBack } from "react-icons/io";
 import FavoriteColorCard from './FavoriteColorCard';
 
-const Header = () => {
+const Header = ({windowHeightMinusHeader}) => {
   const [store, dispatch] = useColors();
   const [favoritesVisible, setFavoritesVisible] = useState(false);
 
   const favoritesClasses = favoritesVisible
     ? `${classes.favorites} ${classes.visible}`
     : `${classes.favorites}`;
-
-  const overlayClasses = favoritesVisible ? `${classes.overlay} ${classes.overlayOpen}`
-  : `${classes.overlay}`;
 
   const toggleMenu = () => {
     setFavoritesVisible((prev) => !prev);
@@ -28,9 +25,9 @@ const Header = () => {
               {favoritesVisible ? <IoIosArrowBack /> : <IoIosMenu />}
             </div>
           </menu>
-          {favoritesVisible ? <h3 className={classes.favoriteColorsText}>Favorite Colors</h3> : null}
+          {favoritesVisible ? <h3 className={classes.favoriteColorsText}>Favorite Colors</h3> : <h3 className={classes.favoriteColorsText}>Color Generator</h3>}
         </nav>
-        <section className={favoritesClasses}>
+        <section className={favoritesClasses} style={{minHeight: windowHeightMinusHeader}}>
           {store.favoriteColors.map(favColor => {
             return <FavoriteColorCard key={favColor} favColor={favColor} />
           })}

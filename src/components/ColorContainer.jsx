@@ -61,7 +61,7 @@ const ColorContainer = ({ color }) => {
       onDragStart={(e) => handleDragStart(e)}
       onDragOver={(e) => handleDragOver(e)}
       onDrop={(e) => handleDrop(e)}
-      className={classes.actions}
+      className={classes.colorContainer}
       style={{ backgroundColor: color }}
     >
       <div
