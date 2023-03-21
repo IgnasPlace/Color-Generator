@@ -53,7 +53,7 @@ const ColorCodeCopy = ({ color }) => {
       onDragStart={(e) => e.preventDefault()}
     >
       <h1 onClick={openColorPickerHandler}>{currentColor}</h1>
-      <button className={classes["copy-btn"]} onClick={handleCopy}>
+      <button className={classes["copy-btn"]} onClick={handleCopy} aria-label="copy-color-code">
         <MdOutlineContentCopy />
       </button>
       <p className={copiedClasses}>Copied to clipboard!</p>
