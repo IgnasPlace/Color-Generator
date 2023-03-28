@@ -1,59 +1,69 @@
 .header {
-    background-color: #fafafa;
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    position: relative;
+  background-color: #fafafa;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .nav {
-    margin: 0 1.7rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin: 0 1.7rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .menu {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #333;
 }
 
-.menu>div {
-    font-size: 1.7rem;
-    display: inline-block;
-    border: none;
-    text-decoration: none;
-    width: fit-content;
-    cursor: pointer;
+.menu > div {
+  font-size: 1.7rem;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  width: fit-content;
+  cursor: pointer;
 }
 
 .favoriteColorsText {
-    font-weight: 500;
-    color: #333;
+  font-weight: 500;
+  color: #333;
 }
 
 .favorites {
-    position: absolute;
-    top: 100%;
-    width: 100vw;
-    min-height: calc(100vh - var(--header-height));
+  position: absolute;
+  top: 100%;
+  width: 100vw;
+  min-height: calc(100vh - var(--header-height));
 
-    overflow-y: scroll;
-    background-color: #313131;
-    transition: transform .3s ease-out;
-    transform: translateX(-150vw);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    z-index: 5556;
-    padding: 1rem 0;
+  overflow-y: scroll;
+  background-color: #313131;
+  transition: transform 0.3s ease-out;
+  transform: translateX(-150vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 5556;
+  padding: 1rem 0;
+}
+
+.noFavoriteColors {
+  color: white;
+  font-size: 1.6rem;
+  padding: 2rem;
+  text-align: center;
+}
+.noFavoriteColors span {
+  font-size: 1rem;
 }
 
 .visible {
-    transform: translateX(0);
+  transform: translateX(0);
 }
