@@ -1,9 +1,14 @@
 import { useReducer, createContext, useContext } from "react";
 import { GenerateColor } from "../utilities/generate-color";
+import isLocalStorageEnabled from "../utilities/isLocalStorageEnabled";
 
-const localStorageFavColors = JSON.parse(localStorage.getItem('favoriteColors'));
+const LocalStorageAvailable = isLocalStorageEnabled();
 
-colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()]
+const localStorageFavColors = LocalStorageAvailable
+  ? JSON.parse(localStorage.getItem("favoriteColors"))
+  : [];
+
+colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()];
 
 const defaultColors = {
   colors: [GenerateColor(), GenerateColor(), GenerateColor(), GenerateColor()],
@@ -95,7 +100,12 @@ const colorReducer = (state, action) => {
           ...state,
         };
       }
-      localStorage.setItem('favoriteColors', JSON.stringify([action.payload, ...state.favoriteColors]))
+      if (LocalStorageAvailable) {
+        localStorage.setItem(
+          "favoriteColors",
+          JSON.stringify([action.payload, ...state.favoriteColors])
+        );
+      }
       return {
         ...state,
         favoriteColors: [action.payload, ...state.favoriteColors],
@@ -105,7 +115,9 @@ const colorReducer = (state, action) => {
       const favColorsArray = state.favoriteColors.filter(
         (color) => color !== action.payload
       );
-      localStorage.setItem('favoriteColors', JSON.stringify(favColorsArray))
+      if (LocalStorageAvailable) {
+        localStorage.setItem("favoriteColors", JSON.stringify(favColorsArray));
+      }
       return {
         ...state,
         favoriteColors: favColorsArray,

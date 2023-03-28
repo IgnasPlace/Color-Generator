@@ -42,6 +42,7 @@ const GenerateColor = ({ color }) => {
       onDragStart={(e) => e.preventDefault()}
       className={classes.btn}
       onClick={handleGenerateColor}
+      aria-label="generate-color"
     >
       <IoRefresh />
     </button>
